@@ -6,6 +6,7 @@ const refs = {
   themeCheckbox: document.querySelector('#theme-switch-toggle'),
   body: document.querySelector('body'),
   menu: document.querySelector('.menu'),
+  switchMarker: document.querySelector('.theme-switch__marker'),
 };
 
 const Theme = {
@@ -21,6 +22,7 @@ function populateTheme() {
   if (localStorageTheme === Theme.DARK) {
     refs.body.className = Theme.DARK;
     refs.themeCheckbox.checked = true;
+    refs.switchMarker.style.transition = 'none';
   }
 }
 
@@ -28,6 +30,7 @@ function populateTheme() {
 refs.themeCheckbox.addEventListener('change', onChangeTheme);
 
 function onChangeTheme() {
+  refs.switchMarker.style.transition = '';
   if (refs.body.className === Theme.DARK) {
     refs.body.className = Theme.LIGHT;
     localStorage.setItem('theme', Theme.LIGHT);
