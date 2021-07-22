@@ -14,7 +14,7 @@ const Theme = {
   DARK: 'dark-theme',
 };
 
-// установка темной темы, если до этого она была изменена
+// установка темы, если до этого она была изменена
 populateTheme();
 
 function populateTheme() {
@@ -23,6 +23,8 @@ function populateTheme() {
     refs.body.className = Theme.DARK;
     refs.themeCheckbox.checked = true;
     refs.switchMarker.style.transition = 'none';
+  } else {
+    refs.body.className = Theme.LIGHT;
   }
 }
 
